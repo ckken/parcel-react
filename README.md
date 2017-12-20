@@ -1,10 +1,5 @@
 # parcel react 工程化解决方案
-## 依赖于  
-+ react react-dom
-+ react-router@3.2
-+ less
-+ async await
-+ stage-0
+基于 `react` `react-dom` `react-router@3.2` `mobx` `mobx-react` `moment` `antd`
 
 ## 里程碑 
 + 增加适配自动路由问题 `v0.4`
