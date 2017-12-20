@@ -1,12 +1,11 @@
 import { observable, action, autorun, computed } from 'mobx'
 import { inject, observer, Provider } from 'mobx-react'
-import stores from 'store/*/*.js'
-console.log(`stores`, stores)
+import stores from 'stores/*/*.js'
 class Store {
     @observable __privateStore = {}
     @action register(storeName) {
         const [module, name] = storeName.split('/')
-        const Cls = stores[module][name].default
+        const Cls = stores[module][name]
         this.__privateStore[storeName] = new Cls()
         return this.__privateStore[storeName]
     }

@@ -4,14 +4,13 @@ console.log(`pages`, pages)
 function catchMod(params) {
   params = Object.assign({ module: 'home', controller: 'home', action: 'index' }, params)
   const { module, controller, action } = params
-  console.log(module, controller, action)
   return pages[module][controller][action]
 }
 export const loadComponent = function () {
   return function (location, cb) {
-    const mod = catchMod(location.params)
     try {
-      cb(null, mod.default)
+      const mod = catchMod(location.params)
+      mod && cb(null, mod) || cb(null, Notfound)
     } catch (e) {
       cb(null, Notfound)
     }
