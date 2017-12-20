@@ -20,10 +20,25 @@ const observerFn = function (fn) {
     return inject('store')(observer(fn))
 }
 
+function debug(){
+    if (process.env.NODE_ENV === 'development') { // 开发模式暂时注释
+      import('mobx-logger').then(({ enableLogging }) => {
+        enableLogging({
+          predicate: () => true,
+          action: true,
+          transaction: true,
+          reaction: true,
+          compute: true
+        })
+      })
+    }
+}
+
 export {
     store,
     inject,
     observer,
     Provider,
-    observerFn
+    observerFn,
+    debug
 }
