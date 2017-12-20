@@ -1,6 +1,5 @@
 import Notfound from './Notfound'
 import pages from 'pages/*/*/*.js'
-console.log(`pages`, pages)
 function catchMod(params) {
   params = Object.assign({ module: 'home', controller: 'home', action: 'index' }, params)
   const { module, controller, action } = params
