@@ -1,4 +1,4 @@
 import React from 'react'
 export default ()=>{
-    return (<div>Notfound</div>)
+    return (<h1>Notfound</h1>)
 }
