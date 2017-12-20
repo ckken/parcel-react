@@ -4,7 +4,7 @@
 + react-router@3.2
 + less
 + async await
-+ stage-2
++ stage-0
 
 ## 里程碑 
 + 增加适配自动路由问题 `v0.4`
