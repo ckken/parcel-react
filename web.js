@@ -1,13 +1,11 @@
-const browserSync = require('browser-sync')
-const historyFallback = require('connect-history-api-fallback')
-
-browserSync.init({
+require('browser-sync').init({
   port: 1234,
   open: false,
   server: {
     baseDir: 'dist',
     middleware: [
-      historyFallback()
+      require("compression")(),
+      require('connect-history-api-fallback')()
     ]
   },
   ui: {

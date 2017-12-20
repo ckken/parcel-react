@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "browser-sync": "^2.19.0",
+    "compression": "^1.7.1",
     "connect-history-api-fallback": "^1.5.0",
     "cross-env": "^5.1.1",
     "less": "^2.7.3",

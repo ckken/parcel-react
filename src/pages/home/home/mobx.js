@@ -11,7 +11,7 @@ export default class HomeIndex extends React.Component {
     render() {
         return (
             <div> 
-                <h1>home {this.store.data.a}</h1>
+                <h1>mobx set data {this.store.data.a}</h1>
                 <button onClick={(e) => this.store.setData({ a: 2 })}>设置</button>
                 <Button type="primary">Primary</Button>
                 <Button>Default</Button>
