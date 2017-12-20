@@ -10,7 +10,6 @@ function catchMod(params) {
 export const loadComponent = function () {
   return function (location, cb) {
     const mod = catchMod(location.params)
-    console.log(mod)
     try {
       cb(null, mod.default)
     } catch (e) {
