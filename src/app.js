@@ -1,5 +1,5 @@
 import React from 'react'
-import { store, Provider,debug } from './store'
+import { store, Provider,debug } from 'store'
 import { Router, browserHistory } from 'react-router'
 import createRoutes from './router'
 const routes = createRoutes()
