@@ -1,12 +1,25 @@
-import { observable, action, autorun, computed } from 'mobx'
-import { inject, observer, Provider } from 'mobx-react'
-import stores from 'stores/*/*.js'
+/**
+ * Created by ken on 2017/5/5.
+ */
+import {
+    observable,
+    action,
+    autorun,
+    computed,
+    toJS
+} from 'mobx'
+import Cls from 'src/storeClass'
+import {
+    inject,
+    observer,
+    Provider
+} from 'mobx-react'
 class Store {
     @observable __privateStore = {}
     @action register(storeName) {
-        const [module, name] = storeName.split('/')
-        const Cls = stores[module][name]
-        this.__privateStore[storeName] = new Cls()
+        if (!this.__privateStore[storeName]) {
+            this.__privateStore[storeName] = new Cls()
+        }
         return this.__privateStore[storeName]
     }
     @action unregister(storeName) {
@@ -20,25 +33,26 @@ const observerFn = function (fn) {
     return inject('store')(observer(fn))
 }
 
-function debug(){
+function debug() {
     if (process.env.NODE_ENV === 'development') { // 开发模式暂时注释
-      import('mobx-logger').then(({ enableLogging }) => {
+        const {
+            enableLogging
+        } = require('mobx-logger')
         enableLogging({
-          predicate: () => true,
-          action: true,
-          transaction: true,
-          reaction: true,
-          compute: true
+            predicate: () => true,
+            action: true,
+            transaction: true,
+            reaction: true,
+            compute: true
         })
-      })
     }
 }
-
 export {
+    debug,
     store,
     inject,
     observer,
     Provider,
     observerFn,
-    debug
+    toJS
 }

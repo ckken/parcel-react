@@ -5,15 +5,14 @@
         "browsers": ["> 1%", "last 2 versions", "safari >= 7"]
       }
     }],
-    "stage-0",
-    "react"
+    "react",
+    "stage-0"
   ],
   "plugins": [
     "add-module-exports",
-    ["transform-runtime", { "polyfill": false }],
     "transform-decorators-legacy",
     "transform-async-to-generator",
-    ["import", {"libraryName": "antd", "style": true }],
+    "transform-class-properties",
     ["module-resolver",
       {
         "root": ["./src"],

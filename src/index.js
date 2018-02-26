@@ -1,5 +1,7 @@
-import React from 'react'
-import * as ReactDOM from 'react-dom'
-import App from './app'
+import "babel-polyfill"
+import 'src/helper/flexible'
+import "src/app"
+import {env} from "./config.js"
+// debug环境
+env==='development' && import('vconsole').then(Cls=>{new Cls()})
 
-ReactDOM.render(<App />, document.getElementById('root'))

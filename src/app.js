@@ -1,15 +1,15 @@
 import React from 'react'
-import { store, Provider,debug } from 'src/store'
-import { Router, browserHistory } from 'react-router'
-import createRoutes from './router'
-const routes = createRoutes()
-export default class App extends React.Component {
-  render() {
+import ReactDOM from 'react-dom'
+import {store, Provider, debug,inject, observer} from './store'
+import App from './pages/index'
+const render = Component => {
     debug()
-    return (
+    Component = inject('store')(observer(Component))
+    ReactDOM.render(
       <Provider store={store}>
-        <Router history={browserHistory} routes={routes}></Router>
-      </Provider>
+        <Component />
+      </Provider>,
+    document.getElementById('root')
     )
-  }
 }
+render(App)

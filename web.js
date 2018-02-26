@@ -1,5 +1,5 @@
 require('browser-sync').init({
-  port: 1234,
+  port: 8888,
   open: false,
   server: {
     baseDir: 'dist',
@@ -9,6 +9,6 @@ require('browser-sync').init({
     ]
   },
   ui: {
-    port: 1235
+    port: 8889
   }
 })
