@@ -14,7 +14,7 @@ axios.interceptors.response.use(function (response) {
   if (response.data.code !== 1) {
     return logicError(response.data)
   }
-  return response.data
+  return response.data.data||{}
 }, function (error) {
   return Promise.reject(error)
 })
